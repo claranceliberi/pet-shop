@@ -1,8 +1,7 @@
-import { ButtonProps } from './SButton.types';
 <template>
-    <button :class="styles">
+    <PButton :class="styles">
         <slot />
-    </button>
+    </PButton>
 </template>
 
 <script setup lang="ts">
