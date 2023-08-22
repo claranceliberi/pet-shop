@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ["vite-plugin-vue-type-imports/nuxt", "@nuxthq/ui",'@pinia/nuxt'],
+    modules: ["vite-plugin-vue-type-imports/nuxt", "@nuxthq/ui",'@pinia/nuxt','@invictus.codes/nuxt-vuetify'],
     app: {
         head: {
             charset: "utf-16",
