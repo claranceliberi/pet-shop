@@ -14,19 +14,6 @@ export default defineNuxtConfig({
         transpile: ["primevue"],
     },
 
-    vuetify: {
-        moduleOptions: {
-            /* nuxt-vuetify module options */
-            treeshaking: true,
-            useIconCDN: true,
-
-            /* vite-plugin-vuetify options */
-            styles: true,
-            autoImport: true,
-            useVuetifyLabs: true,
-        },
-    },
-
     typescript: {
         strict: true,
     },
