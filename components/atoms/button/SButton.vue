@@ -1,5 +1,12 @@
 <template>
-    <PButton :class="styles">
+    <PButton
+        unstyled
+        :pt="{
+            root: { class: `${styles} border-none flex gap-2` },
+            label: { class: 'text-red-500 font-bold text-xl' },
+            icon: 'text-white text-2xl', // OR { class: 'text-white text-2xl' }
+        }"
+    >
         <slot />
     </PButton>
 </template>
