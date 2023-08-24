@@ -14,7 +14,6 @@ module.exports = {
     "@storybook/addon-mdx-gfm",
     '@storybook/addon-storysource',
     "storybook-addon-designs",
-
     {
         name: '@storybook/addon-postcss',
         options: {
@@ -26,6 +25,7 @@ module.exports = {
             },
         },
     },
+    "storybook-addon-nuxt",
 
 ],
   framework: {

@@ -2,8 +2,7 @@ import { setup } from '@storybook/vue3';
 
 import "../assets/css/tailwind.css"
 import "../assets/css/theme.css"
-// import "primevue/resources/themes/lara-light-blue/theme.css"
-import { registerPrimeVue } from '../plugins/registerPrimeVue';
+import { registerPrimeVue } from '../plugins/primeVue/registerPrimeVue';
 
 
 setup((app) => {
