@@ -1,5 +1,7 @@
 import PrimeVue from "primevue/config"
 import Button from "primevue/button"
+import InputText from "primevue/inputtext"
+
 import TailwindPassThrough from "primevue/passthrough/tailwind"
 import { App } from "vue"
 
@@ -10,6 +12,7 @@ export function registerPrimeVue(app: App) {
 
     app.use(PrimeVue, { unstyled: true, pt: Tailwind })
     app.component("PButton", Button)
+    app.component("PInputText", InputText)
 }
 
 // remove styles which are colliding with my custom styles

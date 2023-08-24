@@ -47,6 +47,7 @@
     "plop": "^3.1.2",
     "prettier": "^3.0.2",
     "prettier-eslint": "^15.0.1",
+    "sass": "^1.66.1",
     "storybook": "^7.3.2",
     "storybook-addon-designs": "7.0.0-beta.2",
     "vite-plugin-eslint": "^1.8.1",
