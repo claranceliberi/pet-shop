@@ -10,7 +10,7 @@ type TailwindType = typeof TailwindPassThrough
 export function registerPrimeVue(app: App) {
     const Tailwind = removeUnwantedStyles(["button"])
 
-    app.use(PrimeVue, { unstyled: true, pt: Tailwind })
+    app.use(PrimeVue)
     app.component("PButton", Button)
     app.component("PInputText", InputText)
 }

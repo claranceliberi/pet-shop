@@ -1,12 +1,5 @@
 <template>
-    <PButton
-        unstyled
-        :pt="{
-            root: { class: `${styles} border-none flex gap-2` },
-            label: { class: 'text-red-500 font-bold text-xl' },
-            icon: 'text-white text-2xl', // OR { class: 'text-white text-2xl' }
-        }"
-    >
+    <PButton>
         <slot />
     </PButton>
 </template>
@@ -19,20 +12,5 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     appearance: "primary",
     width: "content",
     rounded: "full",
-})
-
-const styles = computed(() => {
-    let s = ""
-
-    if (props.appearance == "primary") s += ` bg-primary text-white py-2 px-6`
-    else if (props.appearance == "secondary") s += ` bg-white text-black py-2 px-6`
-    else if (props.appearance == "text") s += ` `
-
-    if (props.width == "full") s += ` w-full`
-
-    if (props.rounded == "full") s += " rounded-full"
-    else if (props.rounded == "md") s += " rounded-[5px]"
-
-    return s
 })
 </script>
