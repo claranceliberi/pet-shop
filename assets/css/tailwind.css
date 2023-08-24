@@ -4,6 +4,6 @@
 
 @layer base {
     :root {
-      --color-primary: 78 198 144;
+      --cstm-color-primary: 78 198 144;
     }
   }

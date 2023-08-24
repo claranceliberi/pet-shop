@@ -14,7 +14,7 @@
     "coverage": "vitest run --coverage",
     "cypress": "cypress open",
     "clean": "rm -rf .nuxt coverage node_modules .output",
-    "plop": "plop"
+    "component": "plop"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",

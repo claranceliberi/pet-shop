@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: "rgb(var(--color-primary) / <alpha-value>)",
+                primary: "rgb(var(--cstm-color-primary) / <alpha-value>)",
             },
         },
     },
