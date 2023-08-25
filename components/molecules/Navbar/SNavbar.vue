@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between px-8 bg-primary items-center">
+    <nav class="flex justify-between px-8 bg-primary items-center">
         <Logo appearance="white" />
 
         <!-- links -->
@@ -24,7 +24,7 @@
                 />
             </div>
         </div>
-    </div>
+    </nav>
 </template>
 
 <script setup lang="ts">
