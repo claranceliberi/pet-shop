@@ -1,5 +1,5 @@
 <template>
-    <PAvatar :image="src" class="mr-2" size="large" shape="circle" />
+    <PAvatar :image="src" class="mr-2 border border-white" size="large" shape="circle" />
 </template>
 
 <script setup lang="ts">
