@@ -1,4 +1,4 @@
-export * from "./SProductCard.types"
-import SProductCard from "./SProductCard.vue"
+export * from "./SPromotionCard.types"
+import PromotionCard from "./SPromotionCard.vue"
 
-export default SProductCard
+export default PromotionCard

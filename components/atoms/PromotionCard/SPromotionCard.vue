@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductCardProps } from "./SProductCard.types"
+import type { PromotionCardProps } from "./SPromotionCard.types"
 
-const props = withDefaults(defineProps<ProductCardProps>(), {})
+const props = withDefaults(defineProps<PromotionCardProps>(), {})
 </script>
