@@ -1,4 +1,6 @@
-export interface LoginFormProps {}
+export interface LoginFormProps {
+    error?: string
+}
 
 export interface LoginPayload {
     email: string

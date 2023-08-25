@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LoginPayload } from "./SLoginForm.types"
+import type { LoginPayload, LoginFormProps } from "./SLoginForm.types"
 import Logo from "../../atoms/Logo"
 
 const form = reactive({
@@ -8,8 +8,12 @@ const form = reactive({
     rememberMe: false,
 })
 
+const props = defineProps<LoginFormProps>()
+
 const emit = defineEmits<{
     login: [payload: LoginPayload]
+    forgot?: []
+    signup?: []
 }>()
 
 function login() {
@@ -36,9 +40,12 @@ function login() {
                 <Button class="w-full" label="Log In" @click="login" />
 
                 <div class="flex justify-between">
-                    <div><NuxtLink to="#" class="text-blue-400">Forgot Password?</NuxtLink></div>
-                    <div><NuxtLink to="#" class="text-blue-400">Don't have an account? Signup </NuxtLink></div>
+                    <div><span class="text-blue-400 cursor-pointer" @click="$emit('forgot')">Forgot Password?</span></div>
+                    <div><span class="text-blue-400 cursor-pointer" @click="$emit('signup')">Don't have an account? Signup </span></div>
                 </div>
+            </div>
+            <div v-if="props.error" class="py-4">
+                <PMessage severity="error"><div v-html="props.error"></div></PMessage>
             </div>
         </div>
     </div>

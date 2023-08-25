@@ -27,6 +27,48 @@ export interface Blog {
     updated_at: string
 }
 
+export interface AccountCreationData {
+    is_marketing: boolean
+    last_name: string
+    address: string
+    avatar?: string
+    password_confirmation: string
+    first_name: string
+    phone_number: string
+    password: string
+    email: string
+}
+
+export interface LoginData {
+    email: string
+    password: string
+}
+
+export interface UserData {
+    uuid: string
+    first_name: string
+    last_name: string
+    email: string
+    avatar: string | null
+    address: string
+    phone_number: string
+    is_marketing: number
+    updated_at: string
+    created_at: string
+}
+
+export interface LoginResponse {
+    token: string
+}
+
+export interface UniPaginatedApiResponse<T = any> {
+    success: number
+    data: T
+    error: string | null
+    errors: string[]
+    extra: any[]
+}
+
 interface Link {
     url: IURL | null
     label: string
