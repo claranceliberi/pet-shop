@@ -1,9 +1,9 @@
 <template>
-    <span :class="styles">
+    <div :class="styles">
         <i :class="props.icon" />
-        <PInputText :id="props.id" v-model="value" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+        <PInputText :id="props.id" v-model="value" class="w-full" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
         <label :for="props.id">{{ props.label }}</label>
-    </span>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +19,7 @@ const value = ref("")
 defineEmits(["update:modelValue"])
 
 const styles = computed(() => {
-    let s = " p-float-label"
+    let s = " p-float-label inline-block"
 
     if (props.icon) {
         if (props.iconPosition == "left" || !props.iconPosition) {
