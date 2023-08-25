@@ -17,6 +17,16 @@ export interface Promotion {
     updated_at: string
 }
 
+export interface Blog {
+    uuid: UUID
+    title: string
+    slug: string
+    content: string
+    metadata: Metadata
+    created_at: string
+    updated_at: string
+}
+
 interface Link {
     url: IURL | null
     label: string
