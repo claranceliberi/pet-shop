@@ -1,4 +1,3 @@
-import { Link } from '../components/molecules/Sidebar/SSidebar.types';
 <script lang="ts" setup>
 import { Link } from "@/components/molecules/Sidebar"
 
@@ -9,15 +8,18 @@ const links: Link[] = [
     { label: "Customers", onClick: () => console.log("clicked"), icon: "pi-users" },
     { label: "Products", onClick: () => console.log("clicked"), icon: "pi-inbox" },
 ]
+
+const { isAuth, logout } = useAuth()
 </script>
 
 <template>
     <main class="h-[100vh]">
-        <Navbar>
+        <Navbar :avatar="isAuth">
             <template #actionButtons>
                 <span class="space-x-4">
                     <Button outlined label="Cart (0)" icon="pi pi-shopping-cart" appearance="white" />
-                    <Button outlined label="Login" appearance="white" @click="true" />
+                    <Button v-if="!isAuth" outlined label="Login" appearance="white" @click="true" />
+                    <Button v-else outlined label="Logout" appearance="white" @click="logout" />
                 </span>
             </template>
         </Navbar>

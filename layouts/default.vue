@@ -7,6 +7,9 @@ import { AccountCreationData } from "@/services/types"
 import { useAuthStore } from "@/store/index"
 
 const authStore = useAuthStore()
+const router = useRouter()
+
+const { isAuth, logout } = useAuth()
 
 const isLoginVisible = ref(false)
 const isSignupVisible = ref(false)
@@ -23,12 +26,10 @@ async function onLogin({ email, password }: LoginPayload) {
         .then((res) => {
             const token = res.data.token
             authStore.authenticate(token)
+            router.push("/admin")
         })
-        .catch((err) => {
-            const e = err.response.data
-            Object.values(e.errors)
-                .map((error) => `<li>${error}</li>`)
-                .join("\n")
+        .catch(() => {
+            errors.login = "Login failed"
         })
 }
 
@@ -59,11 +60,12 @@ function handleLoginFromSignupModel() {
 
 <template>
     <div>
-        <Navbar>
+        <Navbar :avatar="isAuth">
             <template #actionButtons>
                 <span class="space-x-4">
                     <Button outlined label="Cart (0)" icon="pi pi-shopping-cart" appearance="white" />
-                    <Button outlined label="Login" appearance="white" @click="isLoginVisible = true" />
+                    <Button v-if="!isAuth" outlined label="Login" appearance="white" @click="isLoginVisible = true" />
+                    <Button v-else outlined label="Logout" appearance="white" @click="logout" />
                 </span>
             </template>
         </Navbar>
