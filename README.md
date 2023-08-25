@@ -1,10 +1,53 @@
-# README.md for Nuxt App
+# Project Title
 
-## Project Overview
+Provide a brief description of what this project does and the problem it solves.
 
-This project is a Nuxt.js application with a focus on Vue 3, Vite, and Cypress for testing. The project structure is organized to facilitate the development of a modern web application with best practices in mind.
+## Table of Contents
 
-## Project Structure
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Scripts](#scripts)
+- [Docker](#docker)
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- Node.js version `>=18.0.0`
+
+### Installation
+
+1. Clone the repository:
+
+
+2. Navigate to the project directory:
+   ```bash
+   cd pet-shop
+   ```
+
+3. Install the dependencies:
+   ```bash
+   pnpm install
+   ```
+
+4. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+## Usage
+
+Provide instructions on how to use the project, any available endpoints, UIs, or features.
+
+## Folder Structure
+
+The project has the following structure:
 
 ```
 .
@@ -12,94 +55,62 @@ This project is a Nuxt.js application with a focus on Vue 3, Vite, and Cypress f
 ├── README.md
 ├── app.vue
 ├── assets
-│   └── css
 ├── components
-│   └── atoms
+│   ├── atoms
+│   ├── molecules
+│   └── organisms
+├── composables
 ├── cypress
-│   ├── downloads
-│   ├── fixtures
-│   └── support
 ├── cypress.config.ts
+├── layouts
+├── middleware
 ├── nuxt.config.ts
 ├── package.json
 ├── pages
-│   └── index.vue
+├── plop-templates
+├── plopfile.js
+├── plugins
 ├── pnpm-lock.yaml
 ├── postcss.config.js
 ├── public
-│   └── favicon.ico
+├── services
 ├── store
-│   └── index.ts
 ├── tailwind.config.js
 ├── tsconfig.json
+├── utils
 ├── vite.config.ts
 └── vitest.config.js
+
 ```
-
-## Setup & Installation
-
-1. Ensure you have Node.js version `>=18.0.0` installed.
-2. Clone the repository.
-3. Navigate to the project directory and run `pnpm install` to install the dependencies.
-4. Use the scripts provided in `package.json` to run, build, and test the application.
 
 ## Scripts
 
-- `build`: Build the Nuxt application for production.
-- `dev`: Start the Nuxt development server.
-- `generate`: Generate a static version of the Nuxt application.
-- `preview`: Preview the generated static site.
-- `storybook`: Start the Storybook development server.
-- `build:storybook`: Build the Storybook for production.
-- `lint:js`: Lint the source code using ESLint.
-- `test:ui`: Run the Vite test UI.
-- `test`: Run the Vite tests.
-- `coverage`: Generate test coverage using Vite.
-- `cypress`: Open the Cypress test runner.
+Here are some of the scripts available:
 
-To run a Docker container
+- **Development**: `pnpm dev`
+- **Build**: `pnpm build`
+- **Generate**: `pnpm generate`
+- **Lint**: `pnpm lint:js`
+- **UI Testing**: `pnpm test:ui`
+- **Testing**: `pnpm test`
+- **Coverage**: `pnpm coverage`
+- **Cypress**: `pnpm cypress`
+- **Clean**: `pnpm clean`
+- **Component Generator**: `pnpm component`
 
-1. **Build the Docker Image**:
+... and more. Check `package.json` for the full list.
+
+## Docker
+
+The project includes a `Dockerfile` for containerization. I have not had enough time to optimize the build and make it work. :
+
+1. Build the Docker image:
    ```bash
-   docker build -t my-nuxt-app .
+   docker build -t petshop .
    ```
 
-2. **Run the Docker Container**:
+2. Run the Docker container:
    ```bash
-   docker run -p 3000:3000 my-nuxt-app
+   docker run -p 3000:3000 petshop
    ```
 
-After running the above commands, you should be able to access your Nuxt app in your browser by navigating to `http://localhost:3000`.
-
-
-## Configuration
-
-The main configuration for the Nuxt application can be found in `nuxt.config.ts`. This configuration includes:
-
-- Module imports for Vite, Nuxt UI, and Pinia.
-- App metadata including charset, viewport, title, and meta description.
-- TypeScript strict mode.
-- Component directory configuration.
-- UI settings including global UI components and icon sets.
-- Devtools configuration with timeline and VSCode settings.
-
-## Dependencies
-
-This project uses a range of dependencies to enhance the development experience and provide functionality:
-
-- **Nuxt.js** as the core framework.
-- **Vite** for faster development and builds.
-- **Cypress** for end-to-end testing.
-- **Storybook** for developing UI components in isolation.
-- **Pinia** for state management.
-- ... and many more.
-
-For a full list of dependencies and their versions, refer to the `package.json` file.
-
-## Contributing
-
-If you'd like to contribute to this project, please ensure you follow the coding standards and guidelines. Before submitting a pull request, ensure all tests pass and the code is linted.
-
----
-
-Happy coding! 🚀
