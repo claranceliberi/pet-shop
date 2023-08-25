@@ -1,12 +1,12 @@
 import { setup } from '@storybook/vue3';
 
 import "../assets/css/tailwind.css"
-import "../assets/css/theme.css"
+
 import { registerPrimeVue } from '../plugins/primeVue/registerPrimeVue';
 
 
-setup((app) => {
-  registerPrimeVue(app)
+setup( (app) => {
+   registerPrimeVue(app)
 });
 
 

@@ -11,21 +11,8 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-mdx-gfm",
     '@storybook/addon-storysource',
     "storybook-addon-designs",
-    {
-        name: '@storybook/addon-postcss',
-        options: {
-            cssLoaderOptions:{
-                importLoaders: 1,
-            },
-            postcssLoaderOptions: {
-                implementation: require('postcss'),
-            },
-        },
-    },
-    "storybook-addon-nuxt",
 
 ],
   framework: {

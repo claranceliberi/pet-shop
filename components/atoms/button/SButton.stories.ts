@@ -7,29 +7,35 @@ const meta: Meta<typeof Button> = {
     component: Button,
     argTypes: {
         appearance: {
-            options: ["primary", "secondary"],
+            options: ["primary", "secondary", "white"],
             control: "select",
             defaultValue: "primary",
             table: {
                 type: { summary: "select" },
             },
         },
-        width: {
-            options: ["full", "content"],
-            control: "select",
-            defaultValue: "content",
+        icon: {
+            control: "string",
+            table: {
+                type: { summary: "string" },
+            },
+        },
+        iconPosition: {
+            options: ["right", "left"],
+            control: "radio",
+            defaultValue: "left",
+            table: {
+                type: { summary: "radio" },
+            },
+        },
+        outlined: {
+            control: "boolean",
+            defaultValue: false,
             table: {
                 type: { summary: "select" },
             },
         },
-        rounded: {
-            options: ["full", "none", "md"],
-            control: "select",
-            defaultValue: "full",
-            table: {
-                type: { summary: "select" },
-            },
-        },
+
         default: {
             control: "text",
             description: "Slot content",
@@ -42,31 +48,6 @@ const meta: Meta<typeof Button> = {
 
 export default meta
 
-const Template: StoryFn = (args) => ({
-    components: { Button },
-    setup() {
-        return { args }
-    },
-    template: `
-        <div style="background-color:#f7f7f7;padding:1rem 2rem">
-            <Button v-bind="args" > {{args.default || 'button'}} </Button>
-        </div>
-    `,
-})
-
-export const Primary = Template.bind({})
-
-Template.args = {
-    primary: true,
-    label: "Button",
-}
-
-export const Secondary = Template.bind({})
-
-Secondary.args = {
-    appearance: "secondary",
-}
-
 const ExampleTemplate: StoryFn = (args) => ({
     components: { Button },
     setup() {
@@ -74,23 +55,14 @@ const ExampleTemplate: StoryFn = (args) => ({
     },
     template: `
         <div style="background-color:#f7f7f7;padding:1rem 2rem">
-            <div style="margin:1rem 0.5rem"> <Button width="full" > button </Button>  </div>
-            <div style="margin:1rem 0.5rem"> <Button width="full" appearance="secondary" > button </Button>  </div>
+            <div style="margin:1rem 0.5rem"> <Button > button </Button>  </div>
+            <div style="margin:1rem 0.5rem"> <Button appearance="white" > button </Button>  </div>
             <div style="margin:1rem 0.5rem;">
-                <Button style="margin:1rem 0.5rem;" appearance="primary" > button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="secondary" > button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="text" > button </Button>
+                <Button style="margin:1rem 0.5rem;" outlined  icon="pi pi-check" label="Button" />
+                <Button style="margin:1rem 0.5rem;" outlined > button </Button>
+                <Button style="margin:1rem 0.5rem;" outlined appearance="white" > button </Button>
             </div>
-            <div >
-                <Button style="margin:1rem 0.5rem;" appearance="primary" rounded="md" > button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="secondary" rounded="md"> button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="text" rounded="md"> button </Button>
-            </div>
-            <div style="margin:1rem 0.5rem;">
-                <Button style="margin:1rem 0.5rem;" appearance="primary" rounded="none" > button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="secondary" rounded="none"> button </Button>
-                <Button style="margin:1rem 0.5rem;" appearance="text" rounded="none"> button </Button>
-            </div>
+
         </div>
     `,
 })
