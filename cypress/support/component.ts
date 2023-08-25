@@ -14,26 +14,42 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import { registerPrimeVue } from "../../plugins/primeVue/registerPrimeVue"
+import "./commands"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-import { mount } from 'cypress/vue'
+import { mount } from "cypress/vue"
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      mount: typeof mount
+    namespace Cypress {
+        interface Chainable {
+            mount: typeof mount
+        }
     }
-  }
 }
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add("mount", (component, options = {}) => {
+    options.global = options.global || {}
+    options.global.stubs = options.global.stubs || {}
+    // options.global.stubs["transition"] = false
+    options.global.components = options.global.components || {}
+    options.global.plugins = options.global.plugins || []
+
+    /* Add any global plugins */
+    options.global.plugins.push({
+        install(app) {
+            registerPrimeVue(app) //import vuetify from you vuetify config
+        },
+    })
+
+    return mount(component, options)
+})
 
 // Example use:
 // cy.mount(MyComponent)
