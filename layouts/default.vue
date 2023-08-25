@@ -4,6 +4,9 @@ import type { LoginPayload } from "@/components/organisms/LoginForm"
 
 import { login, createUser } from "@/services/user"
 import { AccountCreationData } from "@/services/types"
+import { useAuthStore } from "@/store/index"
+
+const authStore = useAuthStore()
 
 const isLoginVisible = ref(false)
 const isSignupVisible = ref(false)
@@ -14,14 +17,18 @@ const errors = reactive({
 
 async function onLogin({ email, password }: LoginPayload) {
     // isLoginVisible.value = false
+    await authStore.logout()
 
     login(email, password)
         .then((res) => {
-            console.log(res)
+            const token = res.data.token
+            authStore.authenticate(token)
         })
         .catch((err) => {
             const e = err.response.data
-            errors.login = Object.values(e.errors).join("\n")
+            Object.values(e.errors)
+                .map((error) => `<li>${error}</li>`)
+                .join("\n")
         })
 }
 
