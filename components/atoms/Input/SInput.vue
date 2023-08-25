@@ -1,7 +1,8 @@
 <template>
-    <span class="p-float-label">
-        <PInputText id="username" v-model="value" :unstyled="false" :pt="{}" />
-        <label for="username">Username</label>
+    <span :class="styles">
+        <i :class="props.icon" />
+        <PInputText :id="props.id" v-model="value" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+        <label :for="props.id">{{ props.label }}</label>
     </span>
 </template>
 
@@ -10,17 +11,25 @@ import type { InputProps } from "./SInput.types"
 import { computed, ref } from "vue"
 
 const props = withDefaults(defineProps<InputProps>(), {
-    appearance: "primary",
+    label: "primary",
 })
 
 const value = ref("")
 
-const styles = computed(() => {
-    let s = ""
+defineEmits(["update:modelValue"])
 
-    if (props.appearance == "primary") s += ` bg-primary text-white py-2 px-6`
-    else if (props.appearance == "secondary") s += ` bg-white text-black py-2 px-6`
-    else if (props.appearance == "text") s += ` `
+const styles = computed(() => {
+    let s = " p-float-label"
+
+    if (props.icon) {
+        if (props.iconPosition == "left" || !props.iconPosition) {
+            s += " p-input-icon-left"
+        }
+
+        if (props.iconPosition == "right") {
+            s += " p-input-icon-right"
+        }
+    }
 
     return s
 })

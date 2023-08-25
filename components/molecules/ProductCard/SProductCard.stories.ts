@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from "@storybook/vue3"
-import Input from "./SInput.vue"
+import ProductCard from "./SProductCard.vue"
 
-const meta: Meta<typeof Input> = {
-    title: "atoms/Input",
-    component: Input,
+const meta: Meta<typeof ProductCard> = {
+    title: "molecules/ProductCard",
+    component: ProductCard,
     argTypes: {
         appearance: {
             options: ["primary", "secondary"],
@@ -26,35 +26,41 @@ const meta: Meta<typeof Input> = {
 export default meta
 
 const Template: StoryFn = (args) => ({
-    components: { Input },
+    components: { ProductCard },
     setup() {
         return { args }
     },
     template: `
         <div style="background-color:#f7f7f7;padding:1rem 2rem">
-            <Input v-bind="args" icon="pi pi-search" >  </Input>
+            <ProductCard v-bind="args" >  </ProductCard>
         </div>
     `,
 })
 
-export const InputWithIcon = Template.bind({})
+export const Primary = Template.bind({})
 
 Template.args = {
     primary: true,
-    label: "Input",
+    label: "ProductCard",
+}
+
+export const Secondary = Template.bind({})
+
+Secondary.args = {
+    appearance: "secondary",
 }
 
 const ExampleTemplate: StoryFn = (args) => ({
-    components: { Input },
+    components: { ProductCard },
     setup() {
         return { args }
     },
     template: `
         <div style="background-color:#f7f7f7;padding:1rem 2rem">
-            <div style="margin:1rem 0.5rem"> <Input width="full" > input text </Input>  </div>
-            <div style="margin:1rem 0.5rem"> <Input width="full" appearance="secondary" > sample text </Input>  </div>
+            <div style="margin:1rem 0.5rem"> <ProductCard width="full" > input text </ProductCard>  </div>
+            <div style="margin:1rem 0.5rem"> <ProductCard width="full" appearance="secondary" > sample text </ProductCard>  </div>
         </div>
     `,
 })
 
-export const InputWithoutIcon = ExampleTemplate.bind({})
+export const Example = ExampleTemplate.bind({})

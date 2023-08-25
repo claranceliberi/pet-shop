@@ -1,5 +1,8 @@
 export interface InputProps {
-    appearance?: "primary" | "secondary" | "text"
-    rounded?: "full" | "md" | "none"
-    width?: "full" | "content"
+    icon?: string
+    iconPosition?: "left" | "right"
+    placeholder?: string
+    label?: string
+    id?: string
+    modelValue?: string
 }

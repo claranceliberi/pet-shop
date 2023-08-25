@@ -2,6 +2,7 @@ type UUID = string
 type IURL = string
 
 interface Metadata {
+    brand: UUID
     image: UUID
     valid_to: string
     valid_from: string
@@ -36,4 +37,40 @@ export interface ApiResponse<T> {
     prev_page_url: IURL | null
     to: number
     total: number
+}
+
+export interface Category {
+    uuid: UUID
+    title: string
+    slug: string
+    created_at: string
+    updated_at: string
+}
+export interface Brand {
+    uuid: UUID
+    title: string
+    slug: string
+    created_at: string
+    updated_at: string
+}
+
+export interface Product {
+    category_uuid: UUID
+    title: string
+    uuid: UUID
+    price: number
+    description: string
+    metadata: Metadata
+    created_at: string
+    updated_at: string
+    deleted_at: string | null
+    category: Category
+    brand: Brand
+}
+
+export interface Params {
+    page?: number
+    limit?: number
+    sortBy?: string
+    desc?: boolean
 }
