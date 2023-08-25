@@ -19,6 +19,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/test-utils": "^3.6.5",
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "@storybook/addon-a11y": "^7.3.2",
     "@storybook/addon-actions": "^7.3.2",
     "@storybook/addon-essentials": "^7.3.2",
@@ -60,13 +61,14 @@
   "dependencies": {
     "@iconify-json/simple-icons": "^1.1.66",
     "@nuxt/devtools": "^0.8.0",
-    "@nuxthq/ui": "^2.7.0",
     "@pinia/nuxt": "^0.4.11",
     "@vitejs/plugin-vue": "^4.3.1",
+    "axios": "^1.4.0",
     "nuxt": "^3.6.5",
     "pinia": "^2.1.6",
     "primeicons": "^6.0.1",
     "primevue": "^3.32.1",
+    "swiper": "^10.2.0",
     "vite-plugin-vue-type-imports": "^0.2.5"
   }
 }

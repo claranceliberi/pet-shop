@@ -1,17 +1,28 @@
 <script lang="ts" setup>
-import { useCounterStore } from "../store/index"
+import "swiper/css"
+import { Swiper, SwiperSlide } from "swiper/vue"
 
-const page = ref(1)
-const items = ref(Array(55))
+import { Swiper as SwiperClass } from "swiper"
+import { getPromotions } from "@/services/mainpage"
 
-const store = useCounterStore()
+const onSwiper = (swiper: SwiperClass) => {
+    console.log(swiper)
+}
+const onSlideChange = () => {
+    console.log("slide change")
+}
+
+const promotions = await getPromotions()
 </script>
 
 <template>
     <div>
-        <h1>home page</h1>
-        <Button>nyamara</Button>
-
-        <p>{{ store.name }}</p>
+        <div class="max-w-[75rem] m-auto py-4">
+            <swiper :slides-per-view="1" :space-between="50" @swiper="onSwiper" @slideChange="onSlideChange">
+                <swiper-slide v-for="promotion in promotions.data" :key="promotion.uuid">
+                    <ProductCard :src="`http://pet-shop.buckhill.com.hr/api/v1/file/${promotion.metadata.image}`" :title="promotion.title" :description="promotion.content" />
+                </swiper-slide>
+            </swiper>
+        </div>
     </div>
 </template>

@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ["vite-plugin-vue-type-imports/nuxt", "@nuxthq/ui", "@pinia/nuxt"],
-    css: ["primevue/resources/themes/lara-light-blue/theme.css"],
+    modules: ["vite-plugin-vue-type-imports/nuxt", "@nuxtjs/tailwindcss", "@pinia/nuxt"],
+    css: ["@/assets/css/theme.css"],
     app: {
         head: {
             charset: "utf-16",
@@ -24,11 +24,6 @@ export default defineNuxtConfig({
             pathPrefix: false,
         },
     ],
-
-    ui: {
-        global: true,
-        icons: ["heroicons", "simple-icons"],
-    },
 
     devtools: {
         enabled: true,
